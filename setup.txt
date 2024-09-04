@@ -1,0 +1,45 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : mod5_up_down_counter
+Version: T-2022.03-SP5
+Date   : Wed Sep  4 13:34:53 2024
+****************************************
+
+Operating Conditions: tt_025C_1v80   Library: sky130_fd_sc_hd__tt_025C_1v80
+Wire Load Model Mode: top
+
+  Startpoint: i_en (input port clocked by my_clk)
+  Endpoint: o_Q_reg[2] (rising edge-triggered flip-flop clocked by my_clk)
+  Path Group: my_clk
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock my_clk (rise edge)                                0.00       0.00
+  clock network delay (ideal)                             1.00       1.00
+  input external delay                                    2.00       3.00 r
+  i_en (in)                                               0.00       3.00 r
+  U23/Y (sky130_fd_sc_hd__clkinv_1)                       0.39       3.39 f
+  U34/Y (sky130_fd_sc_hd__o21ai_1)                        0.21       3.60 r
+  U35/Y (sky130_fd_sc_hd__o31ai_1)                        0.08       3.68 f
+  o_Q_reg[2]/D (sky130_fd_sc_hd__dfrtp_1)                 0.00       3.68 f
+  data arrival time                                                  3.68
+
+  clock my_clk (rise edge)                               10.00      10.00
+  clock network delay (ideal)                             1.00      11.00
+  clock uncertainty                                      -0.25      10.75
+  o_Q_reg[2]/CLK (sky130_fd_sc_hd__dfrtp_1)               0.00      10.75 r
+  library setup time                                     -0.13      10.62
+  data required time                                                10.62
+  --------------------------------------------------------------------------
+  data required time                                                10.62
+  data arrival time                                                 -3.68
+  --------------------------------------------------------------------------
+  slack (MET)                                                        6.94
+
+
+1
